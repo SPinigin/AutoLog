@@ -1,13 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Identity;
 
 namespace AutoLog.Models
 {
-    public class Organization
+    public class Organization : IdentityUser<int>
     {
         [Key]
-        [ForeignKey("Contact")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("OrganizationID")]
         public int OrganizationID { get; set; }
 
@@ -18,20 +19,13 @@ namespace AutoLog.Models
 
         [Required]
         [StringLength(255)]
-        [Column("CuratorFIO")]
-        public string CuratorFIO { get; set; }
+        public string Username { get; set; }
 
         [Required]
-        [StringLength(12)]
-        [Column("CuratorMobilePhoneNumber")]
-        public string CuratorMobilePhoneNumber { get; set; }
+        [DataType(DataType.Password)]
+        public string PasswordHash { get; set; }
 
-        [StringLength(12)]
-        [Column("CuratorLandlinePhoneNumber")]
-        public string CuratorLandlinePhoneNumber { get; set; }
-
-        [StringLength(12)]
-        [Column("CuratorAddPhoneNumber")]
-        public string CuratorAddPhoneNumber { get; set; }
+        public Contact Contact { get; set; }
+        public ICollection<Car> Cars { get; set; }
     }
 }

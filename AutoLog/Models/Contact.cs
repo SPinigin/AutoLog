@@ -7,8 +7,17 @@ namespace AutoLog.Models
     public class Contact
     {
         [Key]
-        [Column("OrganizationID")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("ContactID")]
+        public int ContactID { get; set; }
+
+        [Required]
         public int OrganizationID { get; set; }
+
+        [Required]
+        [Column("OrganizationTaxNumber")]
+        [StringLength(255)]
+        public string OrganizationTaxNumber { get; set; }
 
         [Required]
         [Column("Position")]
@@ -34,6 +43,24 @@ namespace AutoLog.Models
         public string GeneralPhoneNumber { get; set; }
 
         [Required]
+        [StringLength(255)]
+        [Column("CuratorFIO")]
+        public string CuratorFIO { get; set; }
+
+        [Required]
+        [StringLength(12)]
+        [Column("CuratorMobilePhoneNumber")]
+        public string CuratorMobilePhoneNumber { get; set; }
+
+        [StringLength(12)]
+        [Column("CuratorLandlinePhoneNumber")]
+        public string CuratorLandlinePhoneNumber { get; set; }
+
+        [StringLength(12)]
+        [Column("CuratorAddPhoneNumber")]
+        public string CuratorAddPhoneNumber { get; set; }
+
+        [Required]
         [Column("OrganizationAddress")]
         [StringLength(255)]
         public string OrganizationAddress { get; set; }
@@ -41,11 +68,9 @@ namespace AutoLog.Models
         [Required]
         [Column("OrganizationEmail")]
         [StringLength(255)]
+        [EmailAddress]
         public string OrganizationEmail { get; set; }
 
-        [Required]
-        [Column("OrganizationTaxNumber")]
-        [StringLength(255)]
-        public string OrganizationTaxNumber { get; set; }
+        public Organization Organization { get; set; }
     }
 }

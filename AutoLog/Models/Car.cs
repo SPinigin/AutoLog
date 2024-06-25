@@ -11,9 +11,7 @@ namespace AutoLog.Models
         [Column("CarID")]
         public int CarID { get; set; }
 
-        [ForeignKey("")]
         [Required]
-        [Column("OrganizationID")]
         public int OrganizationID { get; set; }
 
         [Required]
@@ -53,14 +51,6 @@ namespace AutoLog.Models
         public double CarLenght { get; set; }
 
         [Required]
-        [Column("HasTrailer")]
-        public bool HasTrailer { get; set; }
-
-        [ForeignKey("Trailer")]
-        [Column("TrailerID")]
-        public int TrailerID { get; set; }
-
-        [Required]
         [StringLength(30)]
         [Column("CarStatus")]
         public string CarStatus { get; set; }
@@ -70,5 +60,7 @@ namespace AutoLog.Models
 
         [Column("UpdatedDate")]
         public DateTime UpdatedDate {  get; set; } = DateTime.Now;
+
+        public ICollection<Trailer> Trailers { get; set; }
     }
 }
