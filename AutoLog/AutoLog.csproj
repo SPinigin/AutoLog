@@ -12,6 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="AdminPage\" />
+    <Folder Include="UserPages\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
 

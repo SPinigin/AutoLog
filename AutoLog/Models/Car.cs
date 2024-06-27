@@ -11,6 +11,9 @@ namespace AutoLog.Models
         [Column("CarID")]
         public int CarID { get; set; }
 
+        [ForeignKey("CargoDepotID")]
+        public CargoDepot CargoDepot { get; set; }
+
         [Required]
         public int OrganizationID { get; set; }
 

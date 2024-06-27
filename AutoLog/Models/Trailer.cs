@@ -38,6 +38,7 @@ namespace AutoLog.Models
         [Column("TrailerLenght")]
         public double CarLenght { get; set; }
 
+        [ForeignKey("CarID")]
         public Car Car { get; set; }
     }
 }
