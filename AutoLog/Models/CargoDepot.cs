@@ -17,8 +17,8 @@ namespace AutoLog.Models
         [StringLength(255)]
         public string CargoDepotLocation { get; set; }
 
-        [Required]
-        [StringLength(255)]
+        //[Required]
+        //[StringLength(255)]
 
     }
 }

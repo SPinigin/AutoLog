@@ -10,7 +10,7 @@ namespace AutoLog.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TrailerID { get; set; }
 
-        public int CarID { get; set; }
+        public int TruckID { get; set; }
 
         [Required]
         [MinLength(10)]
@@ -36,9 +36,9 @@ namespace AutoLog.Models
 
         [Required]
         [Column("TrailerLenght")]
-        public double CarLenght { get; set; }
+        public double TrailerLenght { get; set; }
 
-        [ForeignKey("CarID")]
-        public Car Car { get; set; }
+        [ForeignKey("TruckID")]
+        public Truck Truck { get; set; }
     }
 }
